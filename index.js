@@ -17,6 +17,9 @@ mongoose.connect(process.env.MONGODB)
         console.log(err);
     });
 
+app.get('/', (req, res) => {
+    res.send('welcome');
+})
 app.post('/register', register);
 
 app.listen(process.env.PORT, () => {
