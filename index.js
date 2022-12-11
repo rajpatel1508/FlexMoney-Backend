@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+//Mongoose connection establishment
 mongoose.connect(process.env.MONGODB)
     .then(() => console.log('Connected!'))
     .catch(err => {
@@ -17,9 +18,12 @@ mongoose.connect(process.env.MONGODB)
         console.log(err);
     });
 
+//Temporary get route to home
 app.get('/', (req, res) => {
     res.send('welcome');
 })
+
+//Post route to Register controller
 app.post('/register', register);
 
 app.listen(process.env.PORT, () => {

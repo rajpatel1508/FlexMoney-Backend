@@ -8,6 +8,7 @@ const CompletePayment = (details) => {
 //Function to register new user
 exports.register = (req, res) => {
     const { firstName, lastName, contactNumber, age, batch } = req.body;
+    //Check if user already registered
     User.findOne({ contactNumber })
         .exec((error, user) => {
             if (error) {
